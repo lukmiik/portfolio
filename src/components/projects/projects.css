@@ -1,0 +1,9 @@
+.projects {
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-items: center;
+    border-radius: var(--border-radius);
+    
+}
+

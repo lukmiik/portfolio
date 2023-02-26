@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.header__container {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+}
+
+.header__container h2 {
+  /* font-family: 'Arizonia', cursive; */
+  /* font-family: 'Great Vibes', cursive; */
+  
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-size: 6rem;
+}
+
+.header__container h3 {
+  margin-bottom: 0rem;
+  font-size: 4rem;
+}
+
+.header__container h5 {
+  margin-top: 0rem;
+  font-size: 1rem;
+  line-height: 1.7rem;
+}
+
+.description {
+  position: relative;
+  overflow-wrap: break-word;
+  width: 30vw;
+}
+
+.home__img {
+  position: relative;
+  background: url(./mikro.png);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 9px #ffffffcc;
+  order: 1;
+  justify-self: center;
+  width: 500px;
+  height: 500px;
+  animation: anim 8s ease-in-out infinite 1s;
+  }
+
+
+@keyframes anim {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
+

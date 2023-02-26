@@ -1,0 +1,70 @@
+.skill{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 84vh;
+    width: 70vw;
+    margin: auto;
+}
+
+.logos{
+    margin-left:2vw;
+}
+
+.pacman {
+    width: 100%;
+    position: relative;
+    background: transparent; 
+}
+
+.pacman::before, .pacman::after {
+    z-index: 3; 
+    position: absolute;
+    top: -120px; 
+    display: block;
+    border-radius: 50%;
+    content: "";
+}
+.pacman::before {
+    animation: chunk-top 0.5s ease infinite;
+    border: 10vw solid var(--color-primary);
+    /* border-left-color: transparent; */
+    border-bottom-color: transparent;
+}
+.pacman::after {
+    animation: chunk-bottom 0.5s ease infinite;
+    /* #fc0 */
+    border: 10vw solid var(--color-primary);
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.path{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.path img{
+    max-width: 15vw;
+    max-height: 15vh;
+}
+@keyframes chunk-top {
+    0%,
+    100% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(-80deg);
+    }
+}
+
+@keyframes chunk-bottom {
+    0%,
+    100% {
+        transform: rotate(-40deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
