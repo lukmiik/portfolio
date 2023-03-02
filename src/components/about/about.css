@@ -10,45 +10,43 @@
 }
 
 .header__container h2 {
-  /* font-family: 'Arizonia', cursive; */
-  /* font-family: 'Great Vibes', cursive; */
-  
+  color: var(--color-primary);
   margin-top: 0rem;
   margin-bottom: 0rem;
-  font-size: 6rem;
+  font-size: 5.2vw;
+  overflow-wrap: break-word;
 }
 
 .header__container h3 {
   margin-bottom: 0rem;
-  font-size: 4rem;
+  font-size: 3vw;
 }
 
 .header__container h5 {
   margin-top: 0rem;
-  font-size: 1rem;
-  line-height: 1.7rem;
+  font-size: 0.8vw;
 }
 
 .description {
+  z-index: 5;
   position: relative;
-  overflow-wrap: break-word;
+  line-break: auto;
   width: 30vw;
 }
 
 .home__img {
   position: relative;
-  background: url(./mikro.png);
+  background: url(./cv_photo.jpg);
   background-repeat: no-repeat; 
   background-position: center;
   background-size: cover;
-  box-shadow: inset 0 0 0 9px #ffffffcc;
+  box-shadow: inset 0 0 0 9px var(--color-font);
   order: 1;
   justify-self: center;
   width: 500px;
   height: 500px;
   animation: anim 8s ease-in-out infinite 1s;
   }
-
 
 @keyframes anim {
   0% {
@@ -61,4 +59,93 @@
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .header__container {
+    flex-direction: column;
+    justify-content: flex-start ;
+    gap: 6vh;
+  }
+
+  .description {
+    margin-top: 5vh;
+    align-self: start;
+    padding-left: 10vw;
+    width: 90vw;
+  }
+
+  .header__container h2 {
+    font-size: 5vh;
+    line-height: 5vh;
+  }
+  
+  .header__container h3 {
+    font-size: 3vh;
+  }
+  
+  .header__container h5 {
+    width: 50%;
+    font-size: 1.2vh;
+    line-height: 2vh;
+  }
+
+  .home__img {
+    width: 90vw;
+    height: 50vh;
+    box-shadow: inset 0 0 0 5px #ffffffcc;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width:530px){
+  .home__img {
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width:600px){
+  .description {
+    width: 40vw;
+  }
+
+  .header__container h2 {
+    font-size: 6.9vw;
+  }
+  
+  .header__container h3 {
+    font-size: 3.8vw;
+  }
+  
+  .header__container h5 {
+    font-size: 1.4vw;
+  }
+
+  .home__img {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width:768px){
+  .description {
+    width: 40vw;
+  }
+
+  .header__container h2 {
+    font-size: 6.9vw;
+  }
+  
+  .header__container h3 {
+    font-size: 3.8vw;
+  }
+  
+  .header__container h5 {
+    font-size: 1.4vw;
+  }
+
+  .home__img {
+    width: 380px;
+    height: 380px;
+    }
+}
+
 

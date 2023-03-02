@@ -1,10 +1,23 @@
 import React from 'react'
 import './projects.css'
-import Project from './Project'
 import chess from './board.png'
-import clock from './clock.avif'
-import gomoku from './unnamed.png'
-// import ScrollSpy from "react-ui-scrollspy";
+import clock from './clock.png'
+import gomoku from './gomoku.png'
+import maze from './maze.png'
+import { HashLink as Link } from 'react-router-hash-link';
+
+function Pro(props) {
+  return (
+    <div className="pro">
+      <div className="name">{props.name}</div>
+      <img src={props.img} alt="project"></img>   
+      <div className="links">
+        <div className="demo_link"><Link to={props.link}>Demo</Link></div>
+        <div className="code_link"><a href={props.code} target="_blank" rel="noreferrer">Code</a></div>
+      </div>
+    </div>
+  );
+}
 
 const Projects = () => {
   return (
@@ -12,9 +25,10 @@ const Projects = () => {
         <div className="container projects__container">
           <p className="titles">PROJECTS</p>
           <div className="projects">
-            <Project link="/chess" img={chess} title="Chess"/>
-            <Project link="/gomoku" img={gomoku} title="Gomoku"/>
-            <Project link="/clock" img={clock} title="Clock"/>
+            <Pro link="/chess" img={chess} name="Chess" code="https://github.com/lukmikas"/>
+            <Pro link="/gomoku" img={gomoku} name="Gomoku" code="https://github.com/lukmikas/gomoku"/>
+            <Pro link="/clock" img={clock} name="Clock" code="https://github.com/lukmikas/clock"/>
+            <Pro link="/maze" img={maze} name="Maze" code="https://github.com/lukmikas/maze"/>
           </div>
         </div>
       </section>

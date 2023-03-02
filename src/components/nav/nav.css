@@ -1,34 +1,111 @@
-.nav__container {
+.navbar{
   background-color: var(--dark-color); 
-  width: 75%;
+  width: 100vw;
   height: var(--navbar-height);
   position: fixed;
-  left:12.5%;
-  display: flex;
-  align-items: center;
   z-index: 10;
-  font-size: 1.2vw;
 }
 
-.name {
-  padding-left: 3%;
-  width: 40%;
+.nav__container {
+  background-color: var(--dark-color); 
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.nav__container .name {
   overflow-wrap: break-word;
   max-height: var(--navbar-height);
   color: var(--color-primary);
 }
 
-.links {
-  width: 100%;
+.nav__container .links {
+  width: 50vw;
   text-align: right;
 }
 
 .A {
   color: white;
   text-decoration: none;
-  padding: 1% 5% 1% 3%;
+  padding: 1% 0% 0% 8%;
 }
 
 .active-scroll-spy {
   color:var(--color-primary);
 }
+
+.hamburger{
+  height: calc(var(--navbar-height) - 2vh);
+  width: calc(var(--navbar-height) - 2vh);
+  padding-right: 20px;
+  color: var(--color-primary);
+  background: transparent;
+  border-radius: 50%;
+  outline: none;
+  border: 0;
+  cursor:pointer;
+  display: none;
+}
+
+.hamburger .icon{
+  position: relative;
+  top: 1.5px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar{
+    display: none;
+  }
+  .nav__container {
+    font-size: 1rem;
+    display: none;
+  }
+
+  .nav__container .name{
+    overflow-wrap: normal;
+    width:35%;
+    padding-left: 10px;
+  }
+
+  .nav__container .links{
+    display: none;
+  }
+
+  .hamburger{
+    display: block;
+  }
+
+  .mobile_links{
+    background-color: var(--dark-color);
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: absolute;
+    top: var(--navbar-height);
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 1rem;
+  }
+
+  .A{
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width:600px){
+  .nav__container {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width:768px){
+  .nav__container {
+    font-size: 1.2rem;
+  }
+}
+

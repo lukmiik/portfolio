@@ -1,9 +1,132 @@
-.projects {
-    margin-top: 20vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    justify-items: center;
-    border-radius: var(--border-radius);
-    
+.pro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 30vh;
+    border-radius: 50px;
+    gap:10px;
 }
+
+.pro .name{
+    width: 100%;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+
+.pro a{
+    text-decoration: none;
+    color: var(--color-font)
+  }
+
+.pro img {
+    width: 250px;
+    height: 200px;
+    /* object-fit: fill; */
+    background-color: var(--dark-color-sec);
+    border-radius: 10px;
+}
+
+.pro .links{  
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    gap:2vw;
+}
+
+.pro .links .code_link{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.pro .links .demo_link{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.projects {
+    margin-top: 5vh;
+    display: flex;
+    gap:10vh 150px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+.projects__container{
+    width:750px;
+}
+
+@media screen and (max-width: 600px) {
+    .projects__container{
+        width:100vw;
+    }
+    .projects {
+        margin-top: 5vh;
+        display: flex;
+        gap:10vh 10vw;
+    }
+
+    .pro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 35vw;
+        height: 25vh;
+        border-radius: 50px;
+        
+    }
+
+    .pro .name{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .pro .links{  
+        margin:0;
+        font-size: 1rem;
+        border-radius: 50px;
+        gap:2vw;
+    }
+
+    .pro .links .code_link{
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    }
+    
+    .pro .links .demo_link{
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    }
+
+    .pro img {
+        width: 35vw;
+        height: 25vh;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 768px) and (min-width:600px){
+    .projects__container{
+        width:100vw;
+    }
+
+    .projects {
+        gap:5vh 50px;
+    }
+
+    .pro img {
+        width: 200px;
+        height: 175px;
+    }
+    
+  }
+
+
 

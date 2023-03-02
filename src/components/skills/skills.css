@@ -20,7 +20,7 @@
 .pacman::before, .pacman::after {
     z-index: 3; 
     position: absolute;
-    top: -120px; 
+    top: -5vw; 
     display: block;
     border-radius: 50%;
     content: "";
@@ -28,12 +28,11 @@
 .pacman::before {
     animation: chunk-top 0.5s ease infinite;
     border: 10vw solid var(--color-primary);
-    /* border-left-color: transparent; */
     border-bottom-color: transparent;
+    border-left-color: transparent;
 }
 .pacman::after {
     animation: chunk-bottom 0.5s ease infinite;
-    /* #fc0 */
     border: 10vw solid var(--color-primary);
     border-right-color: transparent;
     border-top-color: transparent;
@@ -47,7 +46,7 @@
 
 .path img{
     max-width: 15vw;
-    max-height: 15vh;
+    max-height: 10vw;
 }
 @keyframes chunk-top {
     0%,
@@ -67,4 +66,35 @@
     50% {
         transform: rotate(0deg);
     }
+}
+
+@media screen and (max-width: 600px) {
+    .skill{
+        width: 100vw;
+    }
+
+    .path img{
+        max-width: 20vw;
+        max-height: 15vw;
+    }
+
+    .pacman::before {
+        animation: chunk-top 0.5s ease infinite;
+        border: 12vw solid var(--color-primary);
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    .pacman::after {
+        animation: chunk-bottom 0.5s ease infinite;
+        border: 12vw solid var(--color-primary);
+        border-right-color: transparent;
+        border-top-color: transparent;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width:601px){
+    .skill{
+        width: 80vw;
+    }
+    
 }

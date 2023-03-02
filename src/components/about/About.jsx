@@ -1,7 +1,5 @@
 import React from 'react'
 import './about.css'
-import pic from './mikro.png'
-// import ScrollSpy from "react-ui-scrollspy";
 
 const About = () => {
   return ( 
@@ -18,7 +16,6 @@ const About = () => {
                     </h5>
                 </div>
                 <div className="home__img"></div>
-                {/* <img src={pic} alt="pic"></img> */}
             </div>
         </section>
   )
