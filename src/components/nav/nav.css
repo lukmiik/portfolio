@@ -25,6 +25,7 @@
 .nav__container .links {
   width: 50vw;
   text-align: right;
+  cursor: pointer;
 }
 
 .A {
@@ -33,7 +34,8 @@
   padding: 1% 0% 0% 8%;
 }
 
-.active-scroll-spy {
+
+.active-scroll-spy{
   color:var(--color-primary);
 }
 

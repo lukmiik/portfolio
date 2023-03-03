@@ -23,7 +23,6 @@
 .pro img {
     width: 250px;
     height: 200px;
-    /* object-fit: fill; */
     background-color: var(--dark-color-sec);
     border-radius: 10px;
 }
@@ -78,8 +77,7 @@
         align-items: center;
         width: 35vw;
         height: 25vh;
-        border-radius: 50px;
-        
+        border-radius: 50px;      
     }
 
     .pro .name{
