@@ -9,7 +9,6 @@ import Gomoku from './components/projects/proj/Gomoku'
 import Clock from './components/projects/proj/Clock'
 import {Routes, Route} from 'react-router-dom'
 import ScrollSpy from "react-ui-scrollspy";
-
 function App() {
   return (
     <div className="App">

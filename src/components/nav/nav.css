@@ -25,15 +25,17 @@
 .nav__container .links {
   width: 50vw;
   text-align: right;
-  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8%;
+
 }
 
 .A {
   color: white;
   text-decoration: none;
-  padding: 1% 0% 0% 8%;
+  cursor: pointer;
 }
-
 
 .active-scroll-spy{
   color:var(--color-primary);
