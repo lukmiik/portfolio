@@ -13,18 +13,18 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-      <ScrollSpy scrollThrottle={100} useBoxMethod={false} >
+      {/* <ScrollSpy scrollThrottle={100} useBoxMethod={false} > */}
         <Routes>
           <Route exact path="/" element={<><About/><Projects/><Skills/><Contact/></>}/>
-          <Route exact path="/#about" element={<><About/></>}/>
-          <Route exact path="/#projects" element={<><Projects/></>}/>
-          <Route exact path="/#skills" element={<><Skills/></>}/>
-          <Route exact path="/#contact" element={<><Contact/></>}/>  
+          <Route exact path="/about" element={<><About/></>}/>
+          <Route exact path="/projects" element={<><Projects/></>}/>
+          <Route exact path="/skills" element={<><Skills/></>}/>
+          <Route exact path="/contact" element={<><Contact/></>}/>  
           <Route exact path="/chess" element={<><Chess/></>}/>  
           <Route exact path="/gomoku" element={<><Gomoku/></>}/>  
           <Route exact path="/clock" element={<><Clock/></>}/>     
         </Routes>
-      </ScrollSpy>
+      {/* </ScrollSpy> */}
     </div>
   );
 }

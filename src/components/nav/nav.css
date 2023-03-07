@@ -19,7 +19,11 @@
 .nav__container .name {
   overflow-wrap: break-word;
   max-height: var(--navbar-height);
+}
+
+.nav__container .name a{
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 .nav__container .links {
@@ -35,6 +39,10 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+.active{
+  color:var(--color-primary);
 }
 
 .active-scroll-spy{

@@ -20,12 +20,16 @@ const Nav = () => {
   return (
     <div ref={navRef} className="navbar" onClick={() => {setMobileNav(!mobileNav);}}>   
       <div  class="container nav__container">
-        <div class="name">Łukasz Łukaszewski</div>  
+        <div class="name">
+          <a href="/portfolio">
+            Łukasz Łukaszewski
+          </a>
+        </div>  
         <div className="links">
-        <Link to='about' className="A" activeClass="active" data-to-scrollspy-id="about"   smooth={true} duration={500} isDynamic={true} offset={-navOffset}>About</Link>
-        <Link to='projects' className="A" activeClass="active" data-to-scrollspy-id="projects"  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Projects</Link>
-        <Link to='skills' className="A" activeClass="active" data-to-scrollspy-id="skills"  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Skills</Link>
-        <Link to='contact' className="A" activeClass="active" data-to-scrollspy-id="contact"  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Contact</Link>
+        <Link to='about' className="A" activeClass="active" data-to-scrollspy-id="about" spy={true}  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>About</Link>
+        <Link to='projects' className="A" activeClass="active" data-to-scrollspy-id="projects" spy={true} smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Projects</Link>
+        <Link to='skills' className="A" activeClass="active" data-to-scrollspy-id="skills" spy={true}  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Skills</Link>
+        <Link to='contact' className="A" activeClass="active" data-to-scrollspy-id="contact" spy={true} smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Contact</Link>
         </div>
         {/* <button className="hamburger" onClick={() => {setMobileNav(!mobileNav);}}>
         <div className="icon"><GiHamburgerMenu size={30} /></div></button>
