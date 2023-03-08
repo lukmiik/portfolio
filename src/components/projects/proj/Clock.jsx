@@ -3,7 +3,7 @@ import './clock.css'
 const Clock = () => {
   return (
     <div className="container clock__container">
-        <div>Clock</div>
+        <div className="soon">COMING SOON</div>
     </div>   
   )
 }

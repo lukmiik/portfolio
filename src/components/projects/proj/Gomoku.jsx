@@ -3,15 +3,7 @@ import './gomoku.css'
 const Gomoku = () => {
   return (
     <div className="container gomoku__container">
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
-        <div>Gomoku</div>
+        <div className="soon">COMING SOON</div>
     </div>
   )
 }

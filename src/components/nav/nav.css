@@ -41,9 +41,9 @@
   cursor: pointer;
 }
 
-.active{
+/* .active{
   color:var(--color-primary);
-}
+} */
 
 .active-scroll-spy{
   color:var(--color-primary);

@@ -44,9 +44,6 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  body{
-    background-color: rgb(46, 9, 9);
-  }
   :root{
     --container-width : 100%;
   }
@@ -58,9 +55,6 @@ body {
 }
 
 @media screen and (max-width: 768px) and (min-width:600px){
-  body{
-    background-color: rgb(7, 15, 68);
-  }
   :root{
     --container-width : 95%;
     --color-primary:#fc0;
@@ -71,9 +65,6 @@ body {
 }
 
 @media screen and (max-width: 1023px) and (min-width:768px){
-  body{
-    background-color: rgb(93, 93, 93);
-  }
   :root{
     --container-width : 90%
   }

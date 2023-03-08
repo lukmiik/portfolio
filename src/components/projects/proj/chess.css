@@ -1,5 +1,13 @@
 .chess__container{
-    border: 1px solid green;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+.soon{
+    text-align: center;
+    font-size: 5rem;
 }
 
 @media screen and (max-width: 600px) {

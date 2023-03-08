@@ -3,7 +3,7 @@ import './chess.css'
 const Chess = () => {
   return (  
     <div className="container chess__container">
-      <div>Chess</div> 
+      <div className="soon">COMING SOON</div> 
     </div>
   )
 }
