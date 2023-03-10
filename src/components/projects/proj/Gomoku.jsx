@@ -3,7 +3,7 @@ import './gomoku.css'
 const Gomoku = () => {
   return (
     <div className="container gomoku__container">
-        <div className="soon">COMING SOON</div>
+        <iframe src="https://replit.com/@lukmikas/Gomoku?lite=true" frameborder="0" title="gomoku"></iframe>
     </div>
   )
 }

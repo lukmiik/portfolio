@@ -26,7 +26,7 @@ const Nav = () => {
           </a>
         </div>  
         <div className="links">
-        <Link to='about' className="A" activeClass="active" data-to-scrollspy-id="about"   smooth={true} duration={500} isDynamic={true} offset={-navOffset}>About</Link>
+        <Link to='about' className="A" activeClass="active" data-to-scrollspy-id="about" smooth={true} duration={500} isDynamic={true} offset={-navOffset}>About</Link>
         <Link to='projects' className="A" activeClass="active" data-to-scrollspy-id="projects"  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Projects</Link>
         <Link to='skills' className="A" activeClass="active" data-to-scrollspy-id="skills"   smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Skills</Link>
         <Link to='contact' className="A" activeClass="active" data-to-scrollspy-id="contact"  smooth={true} duration={500} isDynamic={true} offset={-navOffset}>Contact</Link>

@@ -4,6 +4,11 @@
     align-items:center;  
 }
 
+.gomoku__container iframe{
+    height:80vh;
+    width: 80vw;
+} 
+
 @media screen and (max-width: 600px) {
 
 }

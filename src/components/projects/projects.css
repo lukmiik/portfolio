@@ -23,12 +23,21 @@
     gap:5vw;
 }
 
-.pro img {
+.pro .image{
+    margin-top:15px;
     width: 400px;
     height: 30vh;
     background-color: var(--color-font);
     border-radius: 10px;
-    /* border: 5px solid var(--color-font); */
+    
+}
+
+.pro img {
+    display: block;
+	margin: auto;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
 }
 
 .pro .text{
