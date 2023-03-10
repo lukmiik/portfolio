@@ -69,8 +69,13 @@
 }
 
 @media screen and (max-width: 600px) {
+    .skills__container{
+        height: 50vh;
+    }
+
     .skill{
         width: 100vw;
+        height: 43vh;
     }
 
     .path img{

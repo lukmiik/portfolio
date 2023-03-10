@@ -1,56 +1,7 @@
-.pro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-    height: 30vh;
-    border-radius: 50px;
-    gap:10px;
-}
-
-.pro .name{
-    width: 100%;
-    text-align: center;
-    color: var(--color-primary);
-    font-size: 2rem;
-}
-
-.pro a{
-    text-decoration: none;
-    color: var(--color-font)
-  }
-
-.pro img {
-    width: 250px;
-    height: 200px;
-    background-color: var(--dark-color-sec);
-    border-radius: 10px;
-}
-
-.pro .links{  
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    border-radius: 50px;
-    gap:2vw;
-}
-
-.pro .links .code_link{
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.pro .links .demo_link{
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    text-align: center;
-    border-radius: 50px;
-}
-
 .projects {
     margin-top: 5vh;
     display: flex;
+    flex-direction: column;
     gap:10vh 150px;
     flex-wrap: wrap;
     justify-content: center;
@@ -58,29 +9,123 @@
 }
 
 .projects__container{
-    width:750px;
+    height: 150vh;
 }
+
+.pro{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+    border-radius: 50px;
+    gap:5vw;
+}
+
+.pro img {
+    width: 400px;
+    height: 30vh;
+    background-color: var(--color-font);
+    border-radius: 10px;
+    /* border: 5px solid var(--color-font); */
+}
+
+.pro .text{
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    line-break: auto;
+    width: 30vw;
+    justify-content: space-between;
+}
+
+.pro .name{
+    display: inline;
+    vertical-align: top;
+    width: 100%;
+    text-align: left;
+    color: var(--color-primary);
+    font-size: 4rem;
+}
+
+
+.pro .description{
+    text-align: justify;
+    line-height: 1.7rem;
+
+}
+
+.pro .languages {
+    display:flex;
+    gap:1vw;
+}
+
+.pro .languages .lang{
+    border-radius: 9999px;
+    padding: 10px;
+    background-color: var(--dark-color-sec);
+}
+
+.pro a{
+    text-decoration: none;
+    color: var(--color-font)
+  }
+
+.pro .links{  
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    border-radius: 50px;
+}
+
+.pro .links a{
+    display:flex;
+    left:16px;
+} 
+
+.pro .links .demo_link .icon{
+    position: relative;
+    top: 7px;
+    left:-8px;
+  }
+
+.pro .links .code{
+    position: relative;
+    left:16px;
+  }
+
+.pro .links .code_link .icon{
+    position: relative;
+    top: 7px;
+    left:8px;
+  }
 
 @media screen and (max-width: 600px) {
     .projects__container{
         width:100vw;
+        height: 260vh;
     }
     .projects {
-        margin-top: 5vh;
-        display: flex;
-        gap:10vh 10vw;
+        gap:3vh;
     }
 
     .pro{
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 35vw;
-        height: 25vh;
-        border-radius: 50px;      
+        height: 80vh;
     }
 
-    .pro .name{
+    .pro .text{
+        width: 80vw;
+    }
+
+    .pro .description{
+        margin-bottom: 2vh;
+    }
+
+
+    /* .pro .name{
         font-size: 1.5rem;
         text-align: center;
     }
@@ -98,16 +143,11 @@
     
     .pro .links .demo_link{
         padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-    }
+    } */
 
     .pro img {
-        width: 35vw;
-        height: 25vh;
+        width: 80vw;
     }
-
-
-
-
 }
 
 @media screen and (max-width: 768px) and (min-width:600px){
@@ -119,11 +159,38 @@
         gap:5vh 50px;
     }
 
-    .pro img {
-        width: 200px;
-        height: 175px;
+    .pro{
+        width: 80vw;
+        justify-content:space-around;
+    }
+
+    .pro .text{
+        width:40vw;
+    }
+
+    .pro .name{
+        font-size: 3rem;
     }
     
+    .pro .description{
+        font-size: 1rem;
+    }
+
+    .pro img {
+        width: 300px;
+        height: 225px;
+    }
+    
+  }
+
+  @media screen and (max-width: 1023px) and (min-width:768px){
+    .pro{
+        width: 80vw;
+        justify-content:space-around;
+    }
+    .pro .text{
+        width:40vw;
+    }
   }
 
 

@@ -97,6 +97,13 @@ textarea:focus, input:focus{
 }
 
 @media screen and (max-width: 600px) {
+  .contact__container{
+    height:75vh;
+  }
+  .contact__container .titles{
+    margin-top: 0;
+  }
+
   .con{
     width:35vw;
     height: 12vh;

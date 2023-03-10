@@ -27,7 +27,7 @@
   font-size: 0.8vw;
 }
 
-.description {
+.header__container .description {
   z-index: 5;
   position: relative;
   line-break: auto;
@@ -45,6 +45,7 @@
   justify-self: center;
   width: 500px;
   height: 500px;
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   animation: anim 8s ease-in-out infinite 1s;
   }
 
@@ -67,7 +68,7 @@
     gap: 6vh;
   }
 
-  .description {
+  .header__container .description {
     margin-top: 5vh;
     align-self: start;
     padding-left: 10vw;
@@ -103,7 +104,7 @@
 }
 
 @media screen and (max-width: 768px) and (min-width:600px){
-  .description {
+  .header__container .description {
     width: 40vw;
   }
 
@@ -126,7 +127,7 @@
 }
 
 @media screen and (max-width: 1023px) and (min-width:768px){
-  .description {
+  .header__container .description {
     width: 40vw;
   }
 

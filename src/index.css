@@ -36,7 +36,7 @@ body {
 
 .titles {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-top: var(--navbar-height);
   letter-spacing: 0.1rem;
   text-decoration: underline var(--color-primary) 0.1rem;
