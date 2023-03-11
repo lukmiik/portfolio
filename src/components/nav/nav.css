@@ -1,9 +1,15 @@
-.navbar{
+nav{
+  position: sticky;
   background-color: var(--dark-color); 
   width: 100vw;
   height: var(--navbar-height);
-  position: fixed;
+  top: 0;
   z-index: 10;
+  transition: transform 350ms ease-in-out;
+}
+
+nav.navbar_hidden {
+  transform: translateY(-100%);
 }
 
 .nav__container {
@@ -45,9 +51,9 @@
   color:var(--color-primary);
 } */
 
-.active-scroll-spy{
+/* .active-scroll-spy{
   color:var(--color-primary);
-}
+} */
 
 .hamburger{
   height: calc(var(--navbar-height) - 2vh);
@@ -65,6 +71,25 @@
 .hamburger .icon{
   position: relative;
   top: 1.5px;
+}
+
+@keyframes slideaway {
+  from { display: block; }
+  to { transform: translateY(-100%); opacity: 0;}
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @media screen and (max-width: 600px) {
