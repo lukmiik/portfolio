@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 5vw;
+  height: calc(100vh - var(--navbar-height));
 }
 
 .header__container h2 {
@@ -66,6 +67,7 @@
     flex-direction: column;
     justify-content: flex-start ;
     gap: 6vh;
+    height:100vh;
   }
 
   .header__container .description {
