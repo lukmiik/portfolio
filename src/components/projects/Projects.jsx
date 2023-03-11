@@ -1,8 +1,8 @@
 import React from 'react'
 import './projects.css'
-import clock from './clock.png'
-import gomoku from './gomoku.png'
-import maze from './maze.png'
+import clock from './c.png'
+import gomoku from './g.png'
+import maze from './m.png'
 import {MdKeyboardArrowRight} from 'react-icons/md'
 
 function Pro(props) {
