@@ -111,11 +111,20 @@
     left:8px;
   }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 365px) {
+    .projects__container{
+        height: 270vh;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 365px) {
     .projects__container{
         width:100vw;
         height: 260vh;
     }
+}
+
+@media screen and (max-width: 600px) {
     .projects {
         gap:3vh;
     }

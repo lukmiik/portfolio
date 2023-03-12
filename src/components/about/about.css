@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 5vw;
-  height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - 2*var(--navbar-height));
 }
 
 .header__container h2 {

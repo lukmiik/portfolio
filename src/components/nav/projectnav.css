@@ -1,0 +1,28 @@
+.pro_nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+}
+.pro_nav .icon{   
+    border-radius: 50%;
+    background-color: var(--dark-color-sec);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.pro_nav .icon a{
+    color: white;
+    text-decoration: none;
+}
+
+.pro_nav .icon .pos{
+    
+    position: relative;
+    top:3px;
+}

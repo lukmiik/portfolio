@@ -32,7 +32,7 @@ const Nav = () => {
     <nav ref={navRef} className={navClassList.join("")}>   
       <div  class="container nav__container">
         <div class="name">
-          <a href="/portfolio">
+          <a href={process.env.PUBLIC_URL}>
             Łukasz Łukaszewski
           </a>
         </div>  

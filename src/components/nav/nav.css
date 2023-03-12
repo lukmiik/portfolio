@@ -93,9 +93,14 @@ nav.navbar_hidden {
 }
 
 @media screen and (max-width: 600px) {
-  .navbar{
+  nav{
     display: none;
   }
+
+  nav.navbar_hidden{
+    display: none;
+  }
+  
   .nav__container {
     font-size: 1rem;
     display: none;
