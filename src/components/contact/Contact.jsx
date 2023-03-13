@@ -47,7 +47,7 @@ const Contact = () => {
             <div className="contacts">
               <div><Con icon={HiOutlineMail}name="Email" text="lukaszmlukaszewski@gmail.com"/></div>
               <div><Con icon={AiOutlinePhone}name="Phone" text="+48 664915058"/></div>
-              <a href="https://github.com/lukmikas" target="_blank" rel="noreferrer"><Con icon={AiFillGithub}name="Github" text="lukmikas"/></a>
+              <a href="https://github.com/lukmiik" target="_blank" rel="noreferrer"><Con icon={AiFillGithub}name="Github" text="lukmiik"/></a>
               <a href="https://www.linkedin.com/in/%C5%82ukasz-%C5%82ukaszewski-65a80815a/" target="_blank" rel="noreferrer"><Con icon={AiFillLinkedin}name="Linkedin" text="Łukasz Łukaszewski"/></a>
             </div>
           </div>

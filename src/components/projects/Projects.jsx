@@ -45,9 +45,9 @@ const Projects = () => {
         <div className="container projects__container">
           <p className="titles">Projects</p>
           <div className="projects">
-            <Pro img={maze} name="Maze" desc="Program generates maze using prims algorithm and can find all paths using backtracking algorithm and shortest path using A* or one of two versions of Dijkstra algorithm" lang={maze_items} link="https://lukmikas.github.io/maze/" target="_blank" code="https://github.com/lukmikas/maze"/>
-            <Pro img={clock} name="Clock" desc="Clock app that besides current time let's user set an alarm and choose a sound and a message. The app also allows user to set a timer and a stopwatch. It also offers light and dark mode." lang={clock_items} link={"/clock"}  code="https://github.com/lukmikas/clock"/>
-            <Pro img={gomoku} name="Gomoku" desc="Gomoku, also known as Five in a Row, is a two-player board game similar to tic-tac-toe but played on a 15x15 grid. The objective of the game is to be the first player to place five stones in a row horizontally, vertically, or diagonally." lang={gomoku_items} link={"/gomoku"} code="https://github.com/lukmikas/gomoku"/>
+            <Pro img={maze} name="Maze" desc="Program generates maze using prims algorithm and can find all paths using backtracking algorithm and shortest path using A* or one of two versions of Dijkstra algorithm" lang={maze_items} link="https://lukmiik.github.io/maze/" target="_blank" code="https://github.com/lukmiik/maze"/>
+            <Pro img={clock} name="Clock" desc="Clock app that besides current time let's user set an alarm and choose a sound and a message. The app also allows user to set a timer and a stopwatch. It also offers light and dark mode." lang={clock_items} link={"/clock"}  code="https://github.com/lukmiik/clock"/>
+            <Pro img={gomoku} name="Gomoku" desc="Gomoku, also known as Five in a Row, is a two-player board game similar to tic-tac-toe but played on a 15x15 grid. The objective of the game is to be the first player to place five stones in a row horizontally, vertically, or diagonally." lang={gomoku_items} link={"/gomoku"} code="https://github.com/lukmiik/gomoku"/>
           </div>
         </div>
       </section>
