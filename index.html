@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Prevent Flash of Unstyled Theme (FOUT) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Right Header with 1A Architectural Rocker Switch -->
+  <header class="site-header">
+    <div class="switch-wrapper">
+      <button 
+        type="button"
+        id="theme-toggle" 
+        class="rocker-switch" 
+        role="switch" 
+        aria-checked="false" 
+        aria-label="Toggle dark/light theme"
+        title="Toggle theme"
+        onclick="window.togglePortfolioTheme && window.togglePortfolioTheme()"
+      >
+        <span class="rocker-paddle">
+          <span class="rocker-slit"></span>
+          <span class="paddle-spacer"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Blank Page Canvas -->
+  <main class="page-container">
+    <div class="canvas-hint">
+      <span class="hint-title">Portfolio</span>
+      <p class="hint-desc">
+        Blank canvas initialized. Use the rocker switch in the top-right corner to toggle themes.
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
