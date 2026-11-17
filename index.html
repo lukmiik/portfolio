@@ -2,8 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Łukasz Łukaszewski — Full Stack Engineer</title>
+  <meta name="description" content="Full stack engineer in Warsaw, specializing in backend. Python, FastAPI, PostgreSQL, Vue.">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Link previews (LinkedIn, Slack, X). Absolute URLs: LinkedIn ignores relative ones.
+       Points at the GitHub Pages address the site will be published to. -->
+  <link rel="canonical" href="https://lukmiik.github.io/portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lukmiik.github.io/portfolio/">
+  <meta property="og:title" content="Łukasz Łukaszewski — Full Stack Engineer">
+  <meta property="og:description" content="Full stack engineer in Warsaw, specializing in backend. Python, FastAPI, PostgreSQL, Vue.">
+  <meta property="og:image" content="https://lukmiik.github.io/portfolio/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Łukasz Łukaszewski, full stack engineer in Warsaw">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Browser UI colour (Safari / Chrome address bar); kept in sync with the theme switch -->
+  <meta name="theme-color" content="#e8eaec">
 
   <!-- Prevent Flash of Unstyled Theme (FOUT) -->
   <script>
@@ -13,28 +33,44 @@
         var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         var theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
+        // Match the browser bar to the page before first paint
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0c0f14' : '#e8eaec');
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#panels">Skip to content</a>
 
-  <!-- Top Right Header with 1A Architectural Rocker Switch -->
-  <header class="site-header">
+  <header class="topbar">
+    <a class="brand" href="#about" data-nav="about" aria-label="Łukasz Łukaszewski, go to About">ŁŁ</a>
+
+    <!-- Section nav: hash links so each section is linkable and back/forward works -->
+    <nav class="tabs" aria-label="Sections">
+      <span class="tabs-pill" aria-hidden="true"></span>
+      <a class="tab" href="#about" data-nav="about" aria-keyshortcuts="1">About</a>
+      <a class="tab" href="#experience" data-nav="experience" aria-keyshortcuts="2">Experience</a>
+      <a class="tab" href="#projects" data-nav="projects" aria-keyshortcuts="3">Projects</a>
+      <a class="tab" href="#education" data-nav="education" aria-keyshortcuts="4">Education</a>
+    </nav>
+
     <div class="switch-wrapper">
-      <button 
+      <button
         type="button"
-        id="theme-toggle" 
-        class="rocker-switch" 
-        role="switch" 
-        aria-checked="false" 
-        aria-label="Toggle dark/light theme"
+        id="theme-toggle"
+        class="rocker-switch"
+        role="switch"
+        aria-checked="false"
+        aria-label="Dark theme"
         title="Toggle theme"
-        onclick="window.togglePortfolioTheme && window.togglePortfolioTheme()"
       >
         <span class="rocker-paddle">
           <span class="rocker-slit"></span>
@@ -44,15 +80,301 @@
     </div>
   </header>
 
-  <!-- Blank Page Canvas -->
-  <main class="page-container">
-    <div class="canvas-hint">
-      <span class="hint-title">Portfolio</span>
-      <p class="hint-desc">
-        Blank canvas initialized. Use the rocker switch in the top-right corner to toggle themes.
-      </p>
-    </div>
+  <!--
+    Panels use id="panel-*" (not the bare hash) so the browser never
+    jump-scrolls on hash change; script.js maps #hash -> panel.
+  -->
+  <main id="panels" class="panels">
+
+    <!-- ABOUT -->
+    <section class="panel panel-about is-active" id="panel-about" data-panel="about" aria-labelledby="h-about">
+      <div class="about">
+        <h1 class="about-name" id="h-about" tabindex="-1">
+          <span>Łukasz</span>
+          <span>Łukaszewski</span>
+        </h1>
+        <div class="about-body">
+          <p class="about-role">Full stack engineer in Warsaw, specializing in backend.</p>
+          <p class="about-lede">
+            I take features from the database schema to the screen, with most of my time spent
+            on Python APIs, background jobs and the data underneath. What I enjoy most is turning
+            messy real-world data, like meter readings, sensor streams or video, into something reliable.
+          </p>
+          <ul class="socials">
+            <li>
+              <a href="https://www.linkedin.com/in/lukasz-lukaszewski-/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/lukmiik" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="panel" id="panel-experience" data-panel="experience" aria-labelledby="h-experience">
+      <div class="panel-inner">
+        <h2 class="panel-title" id="h-experience" tabindex="-1">Experience</h2>
+
+        <ol class="timeline">
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2024-09">Sep 2024</time> – <span class="now-pill"><span class="now-dot" aria-hidden="true"></span>Now</span>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Software Engineer</h3>
+              <p class="entry-org">Atende Industries</p>
+              <div class="entry-details" id="exp-details-1">
+                <div class="entry-details-inner">
+                  <p class="entry-summary">
+                    I work on <a class="inline-link" href="https://besmart.energy/" target="_blank" rel="noopener">besmart.energy</a>, an energy management platform for energy communities,
+                    municipalities and businesses. I build features end to end across the Python backend and the
+                    Vue frontend, in areas such as meter and sensor monitoring, energy forecasting, settlements,
+                    tariffs and cost optimization.
+                  </p>
+                  <ul class="entry-points">
+                    <li>Restructured the REST API into controller, service and repository layers, making endpoints easier to test and extend.</li>
+                    <li>Built the Vue screens for the features I work on: forms, data tables, panels and dashboard widgets connected to the APIs behind them.</li>
+                    <li>Built background jobs for tariff optimization, energy reports and forecast accuracy tracking, along with data imports from energy market, weather model and GIS sources.</li>
+                    <li>Designed database models and migrations in PostgreSQL and PostGIS, building on the platform’s custom time-series database.</li>
+                    <li>Implemented authentication and security features: Active Directory sign-in, cookie-based auth, password policies, rate limiting, field encryption, hierarchical permissions and an audit log of user changes.</li>
+                    <li>Wrote API test suites with pytest and maintained CI/CD pipelines in GitLab CI and Jenkins.</li>
+                  </ul>
+                  <ul class="chips" aria-label="Stack">
+                    <li>Python</li><li>FastAPI</li><li>Pydantic</li><li>Vue 3</li><li>PostgreSQL</li>
+                    <li>PostGIS</li><li>SQLAlchemy</li><li>Celery</li><li>NumPy</li><li>pandas</li>
+                    <li>pytest</li><li>Docker</li><li>GitLab CI</li><li>Jenkins</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Client and supplier intentionally not named: private project -->
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2025-11">Nov 2025</time> – <span class="now-pill"><span class="now-dot" aria-hidden="true"></span>Now</span>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Freelance Software Engineer</h3>
+              <p class="entry-org">Self-employed</p>
+              <div class="entry-details" id="exp-details-freelance">
+                <div class="entry-details-inner">
+                  <p class="entry-summary">
+                    Developing a Django system for an online seller that turns a supplier’s catalogue
+                    into live Allegro offers: importing products, generating listings and keeping offers in sync.
+                  </p>
+                  <ul class="entry-points">
+                    <li>Built the product import pipeline from the supplier’s B2B portal: browser automation, response parsing, and extraction of variants, prices and stock.</li>
+                    <li>Moved imports and offer handling onto scheduled Celery task pipelines that create, update and sync Allegro offers through the Allegro API.</li>
+                    <li>Made offer creation resilient with retries on category mismatches and handling for Allegro validation errors, including product-safety (GPSR) requirements.</li>
+                    <li>Added automatic categorization that maps supplier categories to Allegro categories and fills in category parameters.</li>
+                    <li>Introduced structured logging and per-run import reports with metrics.</li>
+                  </ul>
+                  <ul class="chips" aria-label="Stack">
+                    <li>Python</li><li>Django</li><li>Celery</li><li>Redis</li><li>PostgreSQL</li>
+                    <li>Selenium</li><li>Allegro API</li><li>Docker</li><li>Railway</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2023-04">Apr 2023</time> – <time datetime="2024-09">Sep 2024</time>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Python Backend Developer</h3>
+              <p class="entry-org">Reiki Holding</p>
+              <div class="entry-details" id="exp-details-2">
+                <div class="entry-details-inner">
+                  <p class="entry-summary">
+                    Built Python products across several of the group’s projects, from a cashback web app to IoT
+                    apps for sensor-equipped devices.
+                  </p>
+                  <ul class="entry-points">
+                    <li>Developed the backend of a cashback web app with Django REST Framework.</li>
+                    <li>Built SmartChair, a Dash web app that collects and visualizes data from a sensor-equipped chair.</li>
+                    <li>Built Smartwear, a Kivy mobile app for a sensor-embedded sports shirt, covering data acquisition, analysis and visualization.</li>
+                    <li>Wrote web scraping scripts with BeautifulSoup.</li>
+                    <li>Managed company IT and administered Azure cloud resources.</li>
+                  </ul>
+                  <ul class="chips" aria-label="Stack">
+                    <li>Python</li><li>Django REST</li><li>Dash</li><li>Kivy</li>
+                    <li>Matplotlib</li><li>BeautifulSoup</li><li>Azure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS (placeholder content) -->
+    <section class="panel" id="panel-projects" data-panel="projects" aria-labelledby="h-projects">
+      <div class="panel-inner">
+        <h2 class="panel-title" id="h-projects" tabindex="-1">Projects</h2>
+
+        <!-- Desktop: script.js turns the screenshots into a picker strip (spotlight).
+             Mobile, print and no-JS: the projects simply stack. -->
+        <div class="projects">
+          <article class="project">
+            <img class="project-shot" src="img/projects/json-logs-viewer.webp" width="1280" height="720" loading="lazy"
+                 alt="JSON Logs Viewer in a terminal, showing log lines coloured by level">
+            <div class="project-body">
+              <p class="project-meta"><span>2026</span></p>
+              <h3 class="project-name">JSON Logs Viewer</h3>
+              <p class="project-desc">
+                Keyboard-driven terminal app for reading JSONL logs, with Vim-style navigation, a query
+                language for filtering and smooth scrolling through big files.
+              </p>
+              <p class="project-more">
+                Queries match fields and nested paths, combine with AND, OR and NOT, and compare numbers
+                and timestamps. You choose which fields appear as columns, follow a file while it’s being
+                written, and open any entry as highlighted JSON.
+              </p>
+              <ul class="chips"><li>Python</li><li>Textual</li><li>Rich</li><li>Pydantic</li><li>pytest</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/lukmiik/json-logs-viewer" target="_blank" rel="noopener">Source</a>
+                <a href="https://pypi.org/project/json-logs-viewer/" target="_blank" rel="noopener">PyPI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <img class="project-shot" src="img/projects/keyrift.webp" width="1280" height="720" loading="lazy"
+                 alt="Keyrift keymap editor: an on-screen keyboard with Caps Lock remapped to Escape and the key inspector below">
+            <div class="project-body">
+              <p class="project-meta"><span>2026</span></p>
+              <h3 class="project-name">Keyrift</h3>
+              <p class="project-desc">
+                Keyboard remapper for Linux where the keymap is edited by clicking an on-screen keyboard
+                instead of writing a config file.
+              </p>
+              <p class="project-more">
+                It supports layers you hold or toggle, tap-hold keys, shortcuts and macros, and the keyboard
+                shows what every key does on the selected layer. A background engine written in Rust does the
+                remapping and picks up each change as soon as it’s saved.
+              </p>
+              <ul class="chips"><li>TypeScript</li><li>Electron</li><li>React</li><li>Rust</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/lukmiik/keyrift" target="_blank" rel="noopener">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <img class="project-shot" src="img/projects/squat-analyzer.webp" width="1280" height="720" loading="lazy"
+                 alt="Two video frames of a barbell squat with the bar path and squat depth drawn over the lifter">
+            <div class="project-body">
+              <p class="project-meta"><span>2024</span><span>Bachelor’s thesis</span></p>
+              <h3 class="project-name">Squat Analyzer</h3>
+              <p class="project-desc">
+                Web app that analyzes a barbell squat from a video: counts reps, checks depth, times each
+                phase and draws the bar path.
+              </p>
+              <p class="project-more">
+                YOLOv8 finds the barbell plate, ByteTrack follows it between frames and MediaPipe estimates
+                the lifter’s pose, which together give depth, rep count and eccentric and concentric times.
+              </p>
+              <ul class="chips"><li>Python</li><li>OpenCV</li><li>YOLOv8</li><li>ByteTrack</li><li>MediaPipe</li><li>Streamlit</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/lukmiik/squat-analizer-web-app-streamlit" target="_blank" rel="noopener">Source</a>
+                <a href="https://github.com/lukmiik/squat-analizer-web-app-streamlit/blob/main/Thesis.pdf" target="_blank" rel="noopener">Thesis (PDF)</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <img class="project-shot" src="img/projects/free-agents.webp" width="1280" height="720" loading="lazy"
+                 alt="FreeAgents leaderboard listing free LLM models ranked by score">
+            <div class="project-body">
+              <p class="project-meta"><span>2026</span></p>
+              <h3 class="project-name">FreeAgents</h3>
+              <p class="project-desc">
+                Live catalogue of free LLM APIs, ranked on public benchmarks, with each provider’s limits
+                and sign-up requirements.
+              </p>
+              <p class="project-more">
+                The list refreshes every hour, so models that stop being free drop off and new ones show up
+                the same day. Each provider spells out what access takes, such as an account, a phone number
+                or a card, and whether you get a quota, credits or a one-time trial.
+              </p>
+              <ul class="chips"><li>TypeScript</li><li>Next.js</li><li>React</li><li>Node.js</li></ul>
+              <div class="project-links">
+                <a href="https://free-agents-iota.vercel.app/" target="_blank" rel="noopener">Live site</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="panel" id="panel-education" data-panel="education" aria-labelledby="h-education">
+      <div class="panel-inner">
+        <h2 class="panel-title" id="h-education" tabindex="-1">Education</h2>
+
+        <ol class="timeline">
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2026-10">Oct 2026</time> – <span class="now-pill"><span class="now-dot" aria-hidden="true"></span>Now</span>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Master’s, Management</h3>
+              <p class="entry-org">Uczelnia Łukaszewski</p>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2024-09">Sep 2024</time> – <time datetime="2026-09">Sep 2026</time>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Master’s, Computer Science</h3>
+              <p class="entry-org">Cardinal Stefan Wyszyński University in Warsaw <span class="muted">/ UKSW</span></p>
+              <div class="thesis">
+                <p>Thesis on a computer vision system that detects and counts postal parcels on a conveyor belt.</p>
+                <div class="project-links thesis-links">
+                  <a href="https://github.com/lukmiik/masters_thesis_parcels_object_detection_web_app/blob/main/Thesis.pdf" target="_blank" rel="noopener">Read thesis (PDF)</a>
+                  <a href="https://github.com/lukmiik/masters_thesis_parcels_object_detection_web_app" target="_blank" rel="noopener">Source code</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-when">
+              <time datetime="2021-10">Oct 2021</time> – <time datetime="2024-06">Jun 2024</time>
+            </div>
+            <div class="entry-body">
+              <h3 class="entry-title">Bachelor’s, Computer Science</h3>
+              <p class="entry-org">Cardinal Stefan Wyszyński University in Warsaw <span class="muted">/ UKSW</span></p>
+              <div class="thesis">
+                <p>Thesis on using computer vision in strength training.</p>
+                <div class="project-links thesis-links">
+                  <a href="https://github.com/lukmiik/squat-analizer-web-app-streamlit/blob/main/Thesis.pdf" target="_blank" rel="noopener">Read thesis (PDF)</a>
+                  <a href="https://github.com/lukmiik/squat-analizer-web-app-streamlit" target="_blank" rel="noopener">Source code</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
   </main>
+
+  <!-- Desktop-only hint for keyboard navigation -->
+  <p class="kbd-hint" aria-hidden="true">
+    <kbd>←</kbd><kbd>→</kbd> or <kbd>1</kbd>–<kbd>4</kbd>
+  </p>
 
   <script src="script.js"></script>
 </body>

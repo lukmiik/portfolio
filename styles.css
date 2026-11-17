@@ -1,49 +1,83 @@
 /* ==========================================================================
    Design Tokens & Theme Variables
+   Palette borrows from the wall-switch idea: plaster/concrete surfaces,
+   graphite ink, and the switch's amber as the only accent.
    ========================================================================== */
 :root {
   /* Light Theme (Default) */
-  --bg-primary: #f8fafc;
-  --bg-surface: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --border-subtle: #e2e8f0;
+  --bg-primary: #e8eaec;
+  --bg-surface: #f6f7f8;
+  --text-primary: #16191d;
+  --text-secondary: #5b636d;
+  --border-subtle: #d3d7dc;
+  --marker: #c3c9d0;
+  /* "Now" pill: darker amber on light so it keeps contrast */
+  --now-bg: #fbe7c4;
+  --now-text: #7a4a05;
+  --now-dot: #d97706;
+  --scroll-thumb: #c3c9d0;
+
+  --nav-bg: #f6f7f8;
+  --nav-border: #d3d7dc;
+  --nav-text: #5b636d;
+  --nav-text-hover: #16191d;
+  --nav-pill: #16191d;
+  --nav-pill-text: #f6f7f8;
+  --nav-shadow: 0 6px 20px rgba(22, 25, 29, 0.12), 0 1px 3px rgba(22, 25, 29, 0.08);
+
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   /* Switch Plate & Paddle - Light Mode */
   --plate-bg: linear-gradient(145deg, #f1f4f8, #d8dee8);
-  --plate-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+  /* Tight contact shadow only: a wide blur read as a halo around the switch */
+  --plate-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
   --plate-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.95), inset 0 -1px 2px rgba(0, 0, 0, 0.12);
   --paddle-bg: linear-gradient(180deg, #ffffff 0%, #e8edf3 100%);
   --paddle-shadow-off: 0 5px 8px rgba(0, 0, 0, 0.15), inset 0 -2px 3px rgba(0, 0, 0, 0.12), inset 0 2px 3px #ffffff;
   --paddle-shadow-on: 0 -5px 8px rgba(0, 0, 0, 0.15), inset 0 2px 3px rgba(0, 0, 0, 0.12), inset 0 -2px 3px rgba(255, 255, 255, 0.4);
   --slit-off: #cbd5e1;
   --slit-on: #f59e0b;
-  --slit-glow: 0 0 8px #f59e0b, 0 0 16px rgba(245, 158, 11, 0.6);
+  --slit-glow: 0 0 3px rgba(245, 158, 11, 0.45); /* faint halo, matches the flat "Now" pill */
   --focus-ring: #3b82f6;
 }
 
 [data-theme="dark"] {
   /* Dark Theme */
-  --bg-primary: #090d16;
-  --bg-surface: #111827;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --border-subtle: #1e293b;
+  --bg-primary: #0c0f14;
+  --bg-surface: #141922;
+  --text-primary: #e9ecf0;
+  --text-secondary: #8f99a6;
+  --border-subtle: #232a35;
+  --marker: #333c49;
+  --now-bg: rgba(245, 158, 11, 0.14);
+  --now-text: #fbbf4a;
+  --now-dot: #f59e0b;
+  --scroll-thumb: #2c3440;
+
+  --nav-bg: #12161d;
+  --nav-border: #262d38;
+  --nav-text: #9aa3ae;
+  --nav-text-hover: #e9ecf0;
+  --nav-pill: #f4f5f6;
+  --nav-pill-text: #0c0f14;
+  --nav-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
 
   /* Switch Plate & Paddle - Dark Mode */
   --plate-bg: linear-gradient(145deg, #1e2634, #121822);
-  --plate-shadow: 0 6px 18px rgba(0, 0, 0, 0.65), 0 2px 4px rgba(0, 0, 0, 0.4);
+  --plate-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   --plate-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.18), inset 0 -1px 2px rgba(0, 0, 0, 0.7);
   --paddle-bg: linear-gradient(180deg, #2e3a4e 0%, #1c2430 100%);
   --paddle-shadow-off: 0 5px 10px rgba(0, 0, 0, 0.5), inset 0 -2px 3px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
   --paddle-shadow-on: 0 -5px 10px rgba(0, 0, 0, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.6), inset 0 -1px 2px rgba(255, 255, 255, 0.2);
   --slit-off: #334155;
   --slit-on: #f59e0b;
-  --slit-glow: 0 0 10px #f59e0b, 0 0 20px rgba(245, 158, 11, 0.75);
+  --slit-glow: 0 0 4px rgba(245, 158, 11, 0.4);
 }
 
 /* ==========================================================================
-   Base Page Layout
+   Base
    ========================================================================== */
 * {
   box-sizing: border-box;
@@ -52,38 +86,51 @@
 }
 
 html, body {
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.35s ease;
-  position: relative;
-  overflow-x: hidden;
+  transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.35s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==========================================================================
-   Header Container (Top Right Placement)
-   ========================================================================== */
-.site-header {
-  position: fixed;
-  top: 24px;
-  right: 28px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+a {
+  color: inherit;
 }
 
-.switch-wrapper {
-  display: inline-block;
-  position: relative;
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
+
+/* Headings receive programmatic focus on section change; no ring needed there */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 10000;
+  padding: 8px 12px;
+  background: var(--nav-pill);
+  color: var(--nav-pill-text);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 
 /* ==========================================================================
    1A Architectural Rocker Switch (Gira E2 / Jung LS 990 Bauhaus Style)
@@ -169,41 +216,1041 @@ body {
   box-shadow: var(--slit-glow);
 }
 
+
 /* ==========================================================================
-   Clean Blank Canvas
+   Top Bar: brand · section tabs · theme switch
    ========================================================================== */
-.page-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 40px 24px;
-  text-align: center;
+  gap: 16px;
+  padding: 20px 28px 0;
 }
 
-.canvas-hint {
-  max-width: 480px;
+.brand {
+  justify-self: start;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.switch-wrapper {
+  justify-self: end;
+  display: inline-block;
+  position: relative;
+}
+
+/* Tab bar modelled on the reference: dark rounded tray, solid pill for the active tab */
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  padding: 5px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: 14px;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  padding: 9px 18px;
+  border-radius: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--nav-text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--nav-text-hover);
+}
+
+.tab[aria-current="page"] {
+  color: var(--nav-pill-text);
+}
+
+/* Single pill element slides between tabs; position set from script.js */
+.tabs-pill {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  border-radius: 9px;
+  background: var(--nav-pill);
+  transform: translateX(var(--pill-x, 0));
+  width: var(--pill-w, 0);
+  transition: transform 0.35s var(--ease-out), width 0.35s var(--ease-out), background-color 0.35s ease;
+}
+
+.tabs-pill.no-anim {
+  transition: none;
+}
+
+/* ==========================================================================
+   Panels (desktop: one visible at a time, no page scroll)
+   ========================================================================== */
+body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  overflow: hidden;
 }
 
-.canvas-hint:hover {
-  opacity: 0.9;
+.panels {
+  position: relative;
+  flex: 1;
+  min-height: 0;
 }
 
-.hint-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.panel {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto; /* content can still overflow inside a panel */
+  /* Thin bar in theme colours; gutter reserved on every panel so content
+     doesn't shift between tabs that do and don't overflow */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+  scrollbar-gutter: stable both-edges; /* both edges keeps content centred under the navbar */
+  /* Bottom padding just clears the fixed keyboard hint (~42px); more makes panels
+     that nearly fit (e.g. Experience at ~940px tall) scroll by a few px */
+  padding: 56px 28px 48px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(calc(var(--dir, 1) * 24px));
+  transition: opacity 0.28s ease, transform 0.38s var(--ease-out), visibility 0s linear 0.38s;
 }
 
-.hint-desc {
-  font-size: 0.92rem;
-  line-height: 1.6;
+.panel.is-active {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.28s ease, transform 0.38s var(--ease-out), visibility 0s;
+}
+
+/* Outgoing panel leaves in the opposite direction of travel */
+.panel.is-leaving {
+  transform: translateX(calc(var(--dir, 1) * -24px));
+}
+
+.panel-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.panel-title {
+  font-weight: 750;
+  font-stretch: 112%;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 40px;
+}
+
+.muted {
   color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   About — the one loud moment: the name set huge in wide Archivo
+   ========================================================================== */
+.panel-about {
+  display: flex;
+  align-items: center;
+  /* Content is centred anyway; tighter padding keeps it from overflowing
+     by a few px on short laptop screens (e.g. 1280x680) */
+  padding-top: 24px;
+  padding-bottom: 56px; /* clears the fixed keyboard hint */
+}
+
+.about {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.about-name {
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: clamp(3rem, 9.4vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  margin-bottom: 48px;
+}
+
+/* Second line sits indented, like a plate offset on a wall */
+.about-name span:last-child {
+  padding-left: 0.62em;
+}
+
+.about-body {
+  max-width: 540px;
+  margin-left: calc(0.62 * clamp(3rem, 9.4vw, 9rem));
+}
+
+.about-role {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.about-lede {
+  font-size: 1.06rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.socials {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.35s ease;
+}
+
+.socials a:hover {
+  border-color: var(--text-primary);
+}
+
+.socials svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   Timeline (experience + education)
+   ========================================================================== */
+.timeline {
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.entry:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.entry-when {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-top: 4px;
+  white-space: nowrap;
+}
+
+/* Status pill marking current role / study, in the switch's amber */
+.now-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 8px 1px 7px;
+  border-radius: 999px;
+  background: var(--now-bg);
+  color: var(--now-text);
+  font-size: 0.72rem;
+  vertical-align: 1px;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.now-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--now-dot);
+}
+
+.entry-title {
+  font-weight: 650;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.entry-org {
+  margin-top: 2px;
+  font-size: 0.98rem;
+}
+
+.entry-summary {
+  margin-top: 14px;
+  max-width: 65ch;
+}
+
+.entry-points {
+  margin-top: 12px;
+  padding-left: 1.1em;
+  max-width: 65ch;
+  color: var(--text-secondary);
+}
+
+.entry-points li + li {
+  margin-top: 6px;
+}
+
+.entry-points li::marker {
+  color: var(--marker);
+}
+
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.chips li {
+  padding: 3px 9px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Projects
+   ========================================================================== */
+/* Stacked by default (mobile, print, no JS); desktop turns it into a spotlight below */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.project-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Screenshots are exported at 16:9; the frame keeps a stray one from breaking the layout */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  transition: border-color 0.35s ease;
+}
+
+.project-body {
+  margin-top: 18px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.project-meta span + span::before {
+  content: "/";
+  margin-right: 10px;
+  color: var(--marker);
+}
+
+.project-name {
+  margin-top: 6px;
+  font-weight: 700;
+  font-stretch: 112%;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.project-desc,
+.project-more {
+  margin-top: 8px;
+  max-width: 60ch;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.project-more {
+  font-size: 0.9rem;
+}
+
+.project .chips {
+  margin: 16px 0 18px;
+}
+
+.project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.project-links a {
+  text-decoration: underline;
+  text-decoration-color: var(--border-subtle);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.project-links a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ==========================================================================
+   Keyboard hint (desktop only)
+   ========================================================================== */
+.kbd-hint {
+  position: fixed;
+  left: 28px;
+  bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border: 1px solid var(--border-subtle);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Mobile / narrow: normal stacked scroll, floating tab bar at the bottom
+   ========================================================================== */
+@media (max-width: 760px) {
+  :root {
+    --bar-h: 50px;
+    /* Sit just above the iPhone home indicator instead of a full inset + margin */
+    --bar-offset: max(12px, calc(env(safe-area-inset-bottom, 0px) - 8px));
+  }
+
+  body {
+    display: block;
+    overflow: visible;
+    height: auto;
+  }
+
+  /* Top row scrolls away with the page; only the tab bar stays on screen */
+  .topbar {
+    grid-template-columns: 1fr auto;
+    padding: 16px 16px 0;
+  }
+
+  /* Tabs float above content, clear of the phone's gesture area */
+  .tabs {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: var(--bar-offset);
+    z-index: 100;
+    justify-content: space-between;
+    box-shadow: var(--nav-shadow);
+  }
+
+  .tab {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Smaller plate on phones; negative margins give back the space the
+     unscaled 52x80 box would still take up in layout */
+  .rocker-switch {
+    transform: scale(0.7);
+    transform-origin: top right;
+    margin: 0 0 -24px -16px;
+  }
+
+  /* Room at the end so the floating bar never covers the last lines */
+  .panels {
+    display: block;
+    padding-bottom: calc(var(--bar-h) + var(--bar-offset));
+  }
+
+  /* Last section needs less tail: the bar space above already pads it */
+  .panels .panel:last-child { /* beats .panel.is-active padding below */
+    padding-bottom: 0; /* the last entry's own 28px padding is the gap */
+  }
+
+  .panel,
+  .panel.is-active,
+  .panel.is-leaving {
+    position: static;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    padding: 48px 16px;
+    scroll-margin-top: 0;
+  }
+
+  .panel-about {
+    min-height: calc(100svh - 96px); /* viewport minus the top row */
+  }
+
+  .about-name {
+    font-size: clamp(2.2rem, 10.5vw, 4rem);
+    margin-bottom: 32px;
+  }
+
+  .about-name span:last-child {
+    padding-left: 0;
+  }
+
+  .about-body {
+    margin-left: 0;
+  }
+
+  .socials {
+    flex-wrap: wrap;
+  }
+
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .kbd-hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .panel { transform: none !important; }
+}
+
+
+.inline-link {
+  text-decoration: underline;
+  text-decoration-color: var(--border-subtle);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.inline-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.is-instant .panel {
+  transition: none !important;
+}
+
+/* Thesis under a degree: one plain sentence plus links */
+.thesis {
+  margin-top: 12px;
+  max-width: 65ch;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.thesis-links {
+  margin-top: 8px;
+  color: var(--text-primary);
+}
+
+/* Hairlines fade with the theme so they never flash against the old background */
+.entry,
+.chips li,
+kbd {
+  transition: border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ==========================================================================
+   Experience accordion (mobile only; script.js adds .is-accordion there)
+   ========================================================================== */
+.entry-details {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.entry-details-inner {
+  min-height: 0; /* lets the grid row shrink to 0 when collapsed */
+}
+
+.entry-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.entry-chevron {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.entry.is-accordion .entry-when,
+.entry.is-accordion .entry-org {
+  cursor: pointer;
+}
+
+/* Collapsed: animate the row height to 0 and fade the content */
+.entry.is-accordion .entry-details {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.32s var(--ease-out), opacity 0.2s ease;
+}
+
+.entry.is-accordion .entry-details-inner {
+  overflow: hidden;
+}
+
+.entry.is-accordion.is-open .entry-details {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.entry.is-accordion.is-open .entry-chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Experience two-pane (desktop only; built by script.js)
+   ========================================================================== */
+@media (min-width: 761px) {
+  #panel-experience .panel-inner {
+    max-width: 1060px;
+  }
+
+  .exp-split {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Role list stays in view while long details scroll */
+  .exp-list {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .exp-tab {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .exp-tab:hover {
+    background: color-mix(in srgb, var(--bg-surface) 60%, transparent);
+  }
+
+  .exp-tab[aria-selected="true"] {
+    background: var(--bg-surface);
+    border-color: var(--border-subtle);
+  }
+
+  .exp-tab-when {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  .exp-tab-title {
+    display: block;
+    margin-top: 6px;
+    font-weight: 650;
+    font-size: 1.02rem;
+  }
+
+  .exp-tab-org {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  /* Details pane: dates already shown in the list */
+  .exp-split .timeline .entry {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .exp-split .timeline .entry-when {
+    display: none;
+  }
+
+  .exp-split .timeline .entry[hidden] {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Projects spotlight (desktop only; built by script.js)
+   A strip of same-size screenshots picks the project shown large below.
+   ========================================================================== */
+@media (min-width: 761px) {
+  #panel-projects .panel-inner {
+    max-width: 1060px;
+  }
+
+  /* One column per project, so 3 or 5 thumbnails always span the full width */
+  .proj-strip {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .proj-tab {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .proj-tab .project-shot {
+    box-shadow: none;
+    opacity: 0.55;
+    filter: grayscale(0.6);
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+    transition: opacity 0.2s ease, filter 0.2s ease, outline-color 0.2s ease, border-color 0.35s ease;
+  }
+
+  .proj-tab:hover .project-shot {
+    opacity: 0.85;
+    filter: none;
+  }
+
+  .proj-tab[aria-selected="true"] .project-shot {
+    opacity: 1;
+    filter: none;
+    outline-color: var(--text-primary);
+  }
+
+  /* The button already draws a focus outline around the thumbnail */
+  .proj-tab:focus-visible {
+    outline: none;
+  }
+
+  .proj-tab:focus-visible .project-shot {
+    outline-color: var(--focus-ring);
+  }
+
+  .proj-tab-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .proj-tab[aria-selected="true"] .proj-tab-name {
+    color: var(--text-primary);
+  }
+
+  .projects.is-spotlight .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .projects.is-spotlight .project[hidden] {
+    display: none;
+  }
+
+  /* Text column stretches to the screenshot's height so the links (margin-top: auto)
+     line up with the screenshot's bottom edge */
+  .projects.is-spotlight .project {
+    align-items: stretch;
+  }
+
+  .projects.is-spotlight .project > .project-shot {
+    align-self: start;
+  }
+
+  .projects.is-spotlight .project-body {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects.is-spotlight .project .chips {
+    margin-bottom: 0;
+  }
+
+  .projects.is-spotlight .project-links {
+    padding-top: 18px;
+  }
+}
+
+/* ==========================================================================
+   Projects swipe row (mobile only)
+   Projects sit side by side and snap one at a time; the next one peeks in at
+   the right edge, so the section stays about one screen tall however many
+   projects there are. Dots are built by script.js.
+   ========================================================================== */
+@media (max-width: 760px) {
+  .projects {
+    flex-direction: row;
+    gap: 14px;
+    /* Bleed to the screen edges, keep the first card aligned with the text */
+    margin: 0 -16px;
+    padding: 0 16px 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .projects::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project {
+    flex: 0 0 86%;
+    scroll-snap-align: start;
+  }
+
+  .proj-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 22px;
+  }
+
+  .proj-dot {
+    width: 22px;
+    height: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: var(--marker);
+    cursor: pointer;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+
+  .proj-dot[aria-current="true"] {
+    width: 36px;
+    background: var(--text-primary);
+  }
+}
+
+/* ==========================================================================
+   Print: every section stacked on paper, no navigation chrome
+   ========================================================================== */
+@media print {
+  /* Always print with light-theme colours, even if dark mode is on */
+  html[data-theme] {
+    --bg-primary: #fff;
+    --bg-surface: #fff;
+    --text-primary: #16191d;
+    --text-secondary: #5b636d;
+    --border-subtle: #d3d7dc;
+    --marker: #c3c9d0;
+    --now-bg: #fbe7c4;
+    --now-text: #7a4a05;
+    --now-dot: #d97706;
+  }
+
+  .topbar,
+  .kbd-hint,
+  .skip-link,
+  .entry-chevron {
+    display: none !important;
+  }
+
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    display: block;
+    background: #fff;
+    color: #000;
+  }
+
+  .panels {
+    display: block;
+    padding: 0;
+  }
+
+  .panel,
+  .panel.is-active,
+  .panel.is-leaving {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    overflow: visible;
+    padding: 0 0 24px;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+
+  /* Everything is rem-based, so this shrinks the whole layout for paper */
+  html {
+    font-size: 13px;
+  }
+
+  .panel-title {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    break-after: avoid;
+  }
+
+  .entry {
+    padding: 16px 0;
+  }
+
+  /* Two-pane Experience prints as a plain list of every role */
+  .exp-list {
+    display: none !important;
+  }
+
+  .exp-split {
+    display: block !important;
+  }
+
+  .exp-split .timeline .entry,
+  .exp-split .timeline .entry[hidden] {
+    display: grid !important;
+    padding: 16px 0 !important;
+    border-top: 1px solid var(--border-subtle) !important;
+  }
+
+  .exp-split .timeline .entry:first-child {
+    border-top: 0 !important;
+  }
+
+  .exp-split .timeline .entry-when {
+    display: block !important;
+  }
+
+  /* Keep each role / degree whole on one page rather than whole sections */
+  .entry {
+    break-inside: avoid;
+  }
+
+  .panel-about {
+    display: block;
+    min-height: 0;
+  }
+
+  /* Projects on paper: text only, all of them, no picker strip */
+  .proj-strip,
+  .project-shot {
+    display: none !important;
+  }
+
+  .projects.is-spotlight .project,
+  .projects.is-spotlight .project[hidden] {
+    display: block !important;
+  }
+
+  .projects {
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .proj-dots {
+    display: none;
+  }
+
+  .project {
+    flex: none;
+    break-inside: avoid;
+  }
+
+  .project-body {
+    margin-top: 0;
+  }
+
+  .about-name {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .about-body {
+    margin-left: 0;
+  }
+
+  .entry.is-accordion .entry-details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .entry-details-inner {
+    overflow: visible !important;
+  }
 }
